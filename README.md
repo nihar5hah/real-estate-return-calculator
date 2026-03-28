@@ -50,10 +50,19 @@ The calculator updates in real-time as you adjust inputs, providing:
 ## Technical Details
 
 ### Built With
-- Pure HTML5, CSS3, JavaScript (no frameworks)
-- Google Fonts: Playfair Display & DM Sans
-- Responsive CSS Grid layout
-- Indian number formatting (lakhs/crores)
+- **React 18** - Modern UI framework
+- **Framer Motion** - Fluid animations and micro-interactions
+- **Vite** - Next-generation build tool
+- **Google Fonts** - Noto Serif & Manrope
+- **Indian number formatting** (lakhs/crores)
+
+### Key Features
+- 🎨 Aurelian design aesthetic (inspired by high-end wealth management platforms)
+- ✨ Smooth animations with Framer Motion
+- 📱 Fully responsive (desktop, tablet, mobile)
+- 🌙 Dark theme with gold accents
+- ⚡ Real-time calculations
+- 🎯 Bento-grid metrics layout
 
 ### Key Formulas
 
@@ -68,25 +77,42 @@ ROI = (Profit ÷ Total Cost) × 100
 CAGR = ((Revenue ÷ Total Cost)^(1÷Period) - 1) × 100
 ```
 
-## Usage
+## Development
 
-1. Open `Real_Estate_Return_Calculator (Builders).html` in any modern web browser
-2. Enter your project parameters:
-   - Construction area and sellable ratio
-   - Costs (land and construction per sq ft)
-   - Target selling price and project timeline
-3. View real-time calculations and metrics
-4. Adjust inputs to test different scenarios
-5. Use the breakeven indicator to ensure profitable pricing
+### Install Dependencies
+```bash
+npm install
+```
 
-## Design
+### Run Development Server
+```bash
+npm run dev
+```
 
-The calculator features a premium dark theme with gold accents, designed for professional presentations:
-- Luxury aesthetic suitable for stakeholder meetings
-- Clean visual hierarchy with card-based layout
-- Smooth animations and transitions
-- Mobile-responsive design
-- Indian localization (₹ symbol, Indian number format)
+### Build for Production
+```bash
+npm run build
+```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+## Deployment
+
+The app is deployed on Vercel. Any push to the `main` branch will trigger an automatic deployment.
+
+## Design Philosophy
+
+The calculator features the **Aurelian aesthetic** - inspired by luxury wealth management platforms:
+- **Typography**: Noto Serif (display) + Manrope (body) for readability and elegance
+- **Colors**: Deep obsidian backgrounds with burnished gold accents
+- **Inputs**: Minimal bottom-border-only style (no filled backgrounds)
+- **Cards**: Sharp corners (4px), subtle borders, generous padding
+- **Metrics**: Square bento-grid layout with clear hierarchy
+- **Animations**: Orchestrated reveals with staggered timing using Framer Motion
+- **Responsive**: Adapts seamlessly from desktop to mobile
 
 ## Use Cases
 

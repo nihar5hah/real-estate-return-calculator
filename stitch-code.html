@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AURELIAN ASSETS | Investment Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;700&amp;family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#353534",
+              "tertiary-fixed-dim": "#b0c6f9",
+              "outline-variant": "#4e4639",
+              "surface-container": "#201f1f",
+              "surface-dim": "#131313",
+              "tertiary-fixed": "#d8e2ff",
+              "on-tertiary": "#173059",
+              "surface-container-lowest": "#0e0e0e",
+              "on-background": "#e5e2e1",
+              "surface-tint": "#e9c176",
+              "surface-container-highest": "#353534",
+              "background": "#131313",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#52452d",
+              "tertiary-container": "#8fa5d6",
+              "outline": "#9a8f80",
+              "on-tertiary-fixed-variant": "#304671",
+              "on-primary-fixed-variant": "#5d4201",
+              "on-tertiary-fixed": "#001a41",
+              "on-secondary-fixed-variant": "#52452d",
+              "on-error-container": "#ffdad6",
+              "on-surface": "#e5e2e1",
+              "on-primary-container": "#4e3700",
+              "surface": "#131313",
+              "primary": "#e9c176",
+              "error": "#ffb4ab",
+              "on-secondary-fixed": "#241a06",
+              "primary-container": "#c5a059",
+              "tertiary": "#b0c6f9",
+              "on-primary-fixed": "#261900",
+              "surface-container-high": "#2a2a2a",
+              "inverse-surface": "#e5e2e1",
+              "inverse-primary": "#775a19",
+              "secondary-fixed-dim": "#d7c4a5",
+              "on-error": "#690005",
+              "secondary-fixed": "#f4e0c0",
+              "on-secondary": "#3a2f19",
+              "primary-fixed-dim": "#e9c176",
+              "surface-container-low": "#1c1b1b",
+              "surface-bright": "#3a3939",
+              "on-primary": "#412d00",
+              "on-secondary-container": "#c5b395",
+              "error-container": "#93000a",
+              "primary-fixed": "#ffdea5",
+              "secondary": "#d7c4a5",
+              "on-surface-variant": "#d1c5b4",
+              "on-tertiary-container": "#233a65"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(28, 27, 27, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #e9c176 0%, #c5a059 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+<div class="text-xl font-serif tracking-[0.2em] text-[#e9c176] font-['Noto_Serif']">AURELIAN ASSETS</div>
+<nav class="hidden md:flex items-center gap-12">
+<a class="text-[#e5e2e1]/60 hover:text-[#e5e2e1] transition-colors font-['Noto_Serif'] font-light tracking-wider" href="#">Dashboard</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#e5e2e1] transition-colors font-['Noto_Serif'] font-light tracking-wider" href="#">Market Insights</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#e5e2e1] transition-colors font-['Noto_Serif'] font-light tracking-wider" href="#">Portfolio</a>
+</nav>
+<div class="flex items-center gap-6 text-[#e9c176]">
+<button class="hover:text-[#d7c4a5] transition-all duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-[#d7c4a5] transition-all duration-300">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-20">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] w-64 border-r border-[#e5e2e1]/10 bg-[#1c1b1b] py-8 sticky top-20">
+<div class="px-6 mb-12">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 bg-surface-container-high flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+<div>
+<div class="text-xs font-['Manrope'] uppercase tracking-widest text-primary/60">Private Wealth Tier</div>
+<div class="text-sm font-serif text-primary">Investment Portal</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 px-6 py-4 text-[#e9c176] bg-[#2a2a2a] border-r-2 border-[#e9c176] group transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calculate</span>
+<span class="font-['Manrope'] uppercase tracking-widest text-[10px]">Calculator</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#e5e2e1]/40 hover:bg-[#201f1f] group transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-['Manrope'] uppercase tracking-widest text-[10px]">Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#e5e2e1]/40 hover:bg-[#201f1f] group transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-['Manrope'] uppercase tracking-widest text-[10px]">Trends</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#e5e2e1]/40 hover:bg-[#201f1f] group transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] uppercase tracking-widest text-[10px]">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 px-8 md:px-12 py-12 max-w-7xl mx-auto">
+<!-- Asset Hero Section -->
+<section class="mb-24 relative">
+<div class="flex flex-col lg:flex-row gap-12 items-end">
+<div class="lg:w-7/12 relative">
+<div class="aspect-[16/9] w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="Modern architectural structure at dusk with sophisticated golden interior lighting and dark dramatic shadows reflecting luxury real estate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJL6lwHByWXWyxIHYC8ZGU66UaTQzPbl_CIitE8HXwP352FcGnMZjBRnScQ7vq4pQ-YgfOlqLVvlPnz7n5QEx3HEi5jnY6zmxcHpnZq3NoREZet1UTTvhj51GLi_iMh8HZQFskaOIS4eMftECj8E6SUZse8jaoTOmk-IUJnDtNqGrtJVTtVA7ncWS8oQxxsNwLqpxFa0khv0eXXxEPJm4C9vSkpXA2bP_RP0qLIqGrC9irLKdXaBt-PXpYj_M8Moi6LRLd7JWu_g"/>
+</div>
+<div class="absolute -bottom-8 -right-8 glass-panel p-10 border border-primary/10 max-w-md hidden md:block">
+<span class="text-primary font-label text-[10px] tracking-[0.3em] uppercase block mb-4">Strategic Advisory</span>
+<h2 class="font-headline text-3xl leading-tight mb-4">Capital Yield Assessment Engine</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed">Quantifying architectural vision into high-performance financial instruments through precision modeling.</p>
+</div>
+</div>
+<div class="lg:w-5/12 pb-8">
+<span class="text-primary font-label text-[10px] tracking-[0.3em] uppercase block mb-2">Module v4.2</span>
+<h1 class="font-headline text-5xl lg:text-7xl mb-6 tracking-tight">Real Estate Return <br/><span class="text-primary">Calculator</span></h1>
+</div>
+</div>
+</section>
+<!-- Calculator Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Inputs Section -->
+<div class="lg:col-span-4 space-y-12">
+<div>
+<h3 class="font-label text-xs tracking-[0.2em] text-primary uppercase mb-8 border-b border-primary/10 pb-2">Construction Parameters</h3>
+<div class="space-y-8">
+<div class="group">
+<label class="block text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 group-focus-within:text-primary transition-colors">Total Construction Area (sq ft)</label>
+<input class="w-full bg-transparent border-b border-outline/40 focus:border-primary outline-none py-2 font-body text-xl transition-all appearance-none" type="number" value="125000"/>
+</div>
+<div class="group">
+<label class="block text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 group-focus-within:text-primary transition-colors">Sellable Ratio (%)</label>
+<input class="w-full bg-transparent border-b border-outline/40 focus:border-primary outline-none py-2 font-body text-xl transition-all" type="number" value="82"/>
+</div>
+<div class="group">
+<label class="block text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 group-focus-within:text-primary transition-colors">Construction Cost (per sq ft)</label>
+<div class="relative">
+<span class="absolute left-0 top-2 text-primary/40 text-xl font-light">$</span>
+<input class="w-full bg-transparent border-b border-outline/40 focus:border-primary outline-none py-2 pl-6 font-body text-xl transition-all" type="number" value="380"/>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-label text-xs tracking-[0.2em] text-primary uppercase mb-8 border-b border-primary/10 pb-2">Financial Parameters</h3>
+<div class="space-y-8">
+<div class="group">
+<label class="block text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 group-focus-within:text-primary transition-colors">Land Acquisition Cost (Total)</label>
+<div class="relative">
+<span class="absolute left-0 top-2 text-primary/40 text-xl font-light">$</span>
+<input class="w-full bg-transparent border-b border-outline/40 focus:border-primary outline-none py-2 pl-6 font-body text-xl transition-all" type="number" value="12500000"/>
+</div>
+</div>
+<div class="group">
+<label class="block text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 group-focus-within:text-primary transition-colors">Target Selling Price (per sq ft)</label>
+<div class="relative">
+<span class="absolute left-0 top-2 text-primary/40 text-xl font-light">$</span>
+<input class="w-full bg-transparent border-b border-outline/40 focus:border-primary outline-none py-2 pl-6 font-body text-xl transition-all" type="number" value="850"/>
+</div>
+</div>
+<div class="group">
+<label class="block text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 group-focus-within:text-primary transition-colors">Project Duration (Years)</label>
+<input class="w-full bg-transparent border-b border-outline/40 focus:border-primary outline-none py-2 font-body text-xl transition-all" step="0.5" type="number" value="3.5"/>
+</div>
+</div>
+</div>
+<button class="w-full gold-gradient py-6 font-label text-on-primary font-bold uppercase tracking-[0.3em] text-xs hover:opacity-90 active:scale-[0.98] transition-all shadow-xl shadow-primary/10">
+                        Recalculate Projections
+                    </button>
+</div>
+<!-- Analysis & Results Section -->
+<div class="lg:col-span-8 space-y-12">
+<!-- High Impact Metrics Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-8 border border-white/5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] text-primary uppercase tracking-[0.2em]">CAGR</span>
+<div class="space-y-1">
+<div class="text-4xl font-headline">18.4%</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Annualized Yield</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 border border-white/5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] text-primary uppercase tracking-[0.2em]">Net Profit</span>
+<div class="space-y-1">
+<div class="text-4xl font-headline">$27.1M</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Total Earnings</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 border border-white/5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] text-primary uppercase tracking-[0.2em]">ROI</span>
+<div class="space-y-1">
+<div class="text-4xl font-headline">45.2%</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Total Multiple</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 border border-white/5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] text-primary uppercase tracking-[0.2em]">Margin</span>
+<div class="space-y-1">
+<div class="text-4xl font-headline">31.1%</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Profit Efficiency</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 border border-white/5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] text-primary uppercase tracking-[0.2em]">Breakeven</span>
+<div class="space-y-1">
+<div class="text-4xl font-headline">$585</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Price / sq ft</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 border border-white/5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] text-primary uppercase tracking-[0.2em]">Duration</span>
+<div class="space-y-1">
+<div class="text-4xl font-headline">42</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Project Months</div>
+</div>
+</div>
+</div>
+<!-- Revenue & Profit Visualizer -->
+<div class="bg-surface-container p-10 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h4 class="font-headline text-2xl mb-1">Profit Contribution Visual</h4>
+<p class="text-on-surface-variant text-sm">Revenue to Profit Distribution Analysis</p>
+</div>
+<div class="text-right">
+<div class="text-primary text-xl font-body">$87,125,000</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Total Projected Revenue</div>
+</div>
+</div>
+<div class="space-y-12">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-widest mb-3">
+<span class="text-on-surface-variant">Cost Allocation</span>
+<span class="text-primary">68.9% ($60M)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest">
+<div class="h-full bg-secondary-fixed-dim" style="width: 68.9%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-widest mb-3">
+<span class="text-on-surface-variant">Net Profit Capture</span>
+<span class="text-primary">31.1% ($27.1M)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest">
+<div class="h-full gold-gradient" style="width: 31.1%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle Background Accents -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Detailed Analysis Tables -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+<div>
+<h5 class="text-[10px] text-primary uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">account_balance</span> Cost Analysis
+                            </h5>
+<ul class="space-y-6">
+<li class="flex justify-between items-baseline border-b border-white/5 pb-2">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest">Sellable Area</span>
+<span class="font-body text-lg">102,500 sq ft</span>
+</li>
+<li class="flex justify-between items-baseline border-b border-white/5 pb-2">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest">Construction Cost</span>
+<span class="font-body text-lg">$47,500,000</span>
+</li>
+<li class="flex justify-between items-baseline border-b border-white/5 pb-2">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest">Total Investment</span>
+<span class="font-body text-lg">$60,000,000</span>
+</li>
+</ul>
+</div>
+<div>
+<h5 class="text-[10px] text-primary uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">payments</span> Revenue &amp; Profit
+                            </h5>
+<ul class="space-y-6">
+<li class="flex justify-between items-baseline border-b border-white/5 pb-2">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest">Projected Revenue</span>
+<span class="font-body text-lg">$87,125,000</span>
+</li>
+<li class="flex justify-between items-baseline border-b border-white/5 pb-2">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest">Total Expenses</span>
+<span class="font-body text-lg">$60,000,000</span>
+</li>
+<li class="flex justify-between items-baseline border-b border-white/5 pb-2">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest font-bold text-on-surface">Net Profit</span>
+<span class="font-body text-lg text-primary font-bold">$27,125,000</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-[#131313] w-full py-12 px-8 border-t border-[#e5e2e1]/5">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<div class="font-['Manrope'] text-[9px] uppercase tracking-[0.15em] text-[#e5e2e1]/30">
+                © 2024 AURELIAN ASSETS | PRIVATE WEALTH ADVISORY
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#e5e2e1]/30 hover:text-[#e9c176] transition-colors font-['Manrope'] text-[9px] uppercase tracking-[0.15em]" href="#">Privacy Policy</a>
+<a class="text-[#e5e2e1]/30 hover:text-[#e9c176] transition-colors font-['Manrope'] text-[9px] uppercase tracking-[0.15em]" href="#">Terms of Service</a>
+<a class="text-[#e5e2e1]/30 hover:text-[#e9c176] transition-colors font-['Manrope'] text-[9px] uppercase tracking-[0.15em]" href="#">Financial Disclosure</a>
+<a class="text-[#e5e2e1]/30 hover:text-[#e9c176] transition-colors font-['Manrope'] text-[9px] uppercase tracking-[0.15em]" href="#">Contact Concierge</a>
+</div>
+</div>
+</footer>
+</body></html>
