@@ -11,24 +11,24 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg-deep: #07090B;
-    --bg-primary: #0B0E11;
-    --bg-elevated: #10141A;
-    --bg-card: #151A22;
-    --bg-input: #1A2029;
+    --bg-deep: #131313;
+    --bg-primary: #131313;
+    --bg-elevated: #1c1b1b;
+    --bg-card: #201f1f;
+    --bg-input: #2a2a2a;
     
-    --border-subtle: rgba(184, 149, 110, 0.08);
-    --border-medium: rgba(184, 149, 110, 0.15);
-    --border-accent: rgba(184, 149, 110, 0.35);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-medium: rgba(255, 255, 255, 0.1);
+    --border-accent: rgba(233, 193, 118, 0.2);
     
-    --gold-muted: #8B7355;
-    --gold: #B8956E;
-    --gold-bright: #D4AF7A;
-    --gold-light: #E8C99B;
+    --gold-muted: #c5a059;
+    --gold: #e9c176;
+    --gold-bright: #ffdea5;
+    --gold-light: #f4e0c0;
     
-    --text-primary: #F2EDE6;
-    --text-secondary: #9A9590;
-    --text-tertiary: #5C5955;
+    --text-primary: #e5e2e1;
+    --text-secondary: #d1c5b4;
+    --text-tertiary: #9a8f80;
     
     --success: #6B9B7A;
     --success-bg: rgba(107, 155, 122, 0.08);
@@ -188,7 +188,7 @@
   .main-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 32px;
   }
 
   @media (max-width: 800px) {
@@ -223,10 +223,10 @@
   }
 
   .section-label h2 {
-    font-family: var(--font-display);
-    font-size: 11px;
+    font-family: var(--font-body);
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
   }
@@ -235,8 +235,8 @@
   .card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 4px;
+    padding: 40px;
     position: relative;
     transition: border-color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
     opacity: 0;
@@ -254,16 +254,9 @@
     box-shadow: 0 8px 40px -12px rgba(0,0,0,0.4);
   }
 
-  /* Subtle corner accents */
+  /* Remove corner accents */
   .card::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 24px;
-    right: 24px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-muted), transparent);
-    opacity: 0.4;
+    display: none;
   }
 
   .card.span-full {
@@ -272,7 +265,7 @@
 
   /* ========== INPUT STYLING ========== */
   .field {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   .field:last-child {
@@ -283,15 +276,16 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .field-label {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
-    color: var(--text-secondary);
-    letter-spacing: 0.03em;
+    color: var(--text-tertiary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
   .field-unit {
@@ -308,13 +302,14 @@
 
   .input-symbol {
     position: absolute;
-    left: 16px;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--gold-muted);
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gold);
+    opacity: 0.4;
     pointer-events: none;
     z-index: 2;
   }
@@ -322,12 +317,13 @@
   input[type="text"].value-input,
   input[type="number"].value-input {
     width: 100%;
-    background: var(--bg-input);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    padding: 14px 16px 14px 38px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-tertiary);
+    border-radius: 0;
+    padding: 12px 0 12px 24px;
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
     color: var(--text-primary);
     outline: none;
@@ -337,7 +333,7 @@
 
   input[type="text"].value-input.no-symbol,
   input[type="number"].value-input.no-symbol {
-    padding-left: 16px;
+    padding-left: 0;
   }
 
   input::-webkit-outer-spin-button,
@@ -347,9 +343,10 @@
   }
 
   input:focus {
-    border-color: var(--gold-muted);
-    background: var(--bg-elevated);
-    box-shadow: 0 0 0 3px rgba(184, 149, 110, 0.06);
+    border-bottom-color: var(--gold);
+    border-bottom-width: 2px;
+    background: transparent;
+    box-shadow: none;
   }
 
   /* Range slider */
@@ -390,7 +387,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 0;
+    padding: 16px 0;
     border-bottom: 1px solid var(--border-subtle);
   }
 
@@ -404,14 +401,17 @@
   }
 
   .output-label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
   }
 
   .output-value {
-    font-family: var(--font-display);
-    font-size: 16px;
+    font-family: var(--font-body);
+    font-size: 18px;
     font-weight: 500;
     color: var(--text-primary);
   }
@@ -423,22 +423,22 @@
 
   /* ========== RESULTS SECTION ========== */
   .results-section {
-    margin-top: 40px;
+    margin-top: 48px;
   }
 
   .results-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 32px;
-    padding-bottom: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
     border-bottom: 1px solid var(--border-subtle);
   }
 
   .results-header h3 {
     font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 400;
+    font-size: 32px;
+    font-weight: 300;
     color: var(--text-primary);
     letter-spacing: -0.01em;
   }
@@ -446,20 +446,22 @@
   .results-header h3 span {
     font-style: italic;
     color: var(--gold);
+    font-weight: 400;
   }
 
   .results-badge {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 14px;
-    background: var(--bg-input);
+    padding: 10px 16px;
+    background: transparent;
     border: 1px solid var(--border-subtle);
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
-    color: var(--text-secondary);
-    letter-spacing: 0.03em;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .results-badge .dot {
@@ -474,8 +476,8 @@
   .metrics-showcase {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 24px;
+    margin-bottom: 48px;
   }
 
   @media (max-width: 700px) {
@@ -489,21 +491,20 @@
   .metric-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 24px 20px;
-    text-align: center;
+    border-radius: 4px;
+    padding: 32px 24px;
+    text-align: left;
     position: relative;
     overflow: hidden;
     transition: all 0.3s var(--ease-out-expo);
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .metric-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(184, 149, 110, 0.03) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s;
+    display: none;
   }
 
   .metric-card:hover {
@@ -512,63 +513,59 @@
   }
 
   .metric-card:hover::before {
-    opacity: 1;
+    display: none;
   }
 
   .metric-card.featured {
-    background: linear-gradient(135deg, rgba(184, 149, 110, 0.08) 0%, var(--bg-elevated) 100%);
+    background: var(--bg-elevated);
     border-color: var(--border-accent);
   }
 
   .metric-card.featured::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    display: none;
   }
 
   .metric-title {
     font-family: var(--font-body);
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text-tertiary);
-    margin-bottom: 12px;
+    color: var(--gold);
+    margin-bottom: 0;
   }
 
   .metric-value {
     font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 500;
+    font-size: 40px;
+    font-weight: 400;
     color: var(--text-primary);
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 0;
   }
 
   .metric-card.featured .metric-value {
-    color: var(--gold-bright);
-    font-size: 32px;
+    color: var(--text-primary);
+    font-size: 40px;
   }
 
   .metric-value.positive { color: var(--success); }
   .metric-value.negative { color: var(--danger); }
 
   .metric-subtitle {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 400;
     color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   /* ========== PROFIT VISUALIZATION ========== */
   .profit-visual {
-    background: var(--bg-elevated);
+    background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: 14px;
-    padding: 28px;
+    border-radius: 4px;
+    padding: 40px;
     margin-bottom: 24px;
   }
 
@@ -656,20 +653,22 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 18px 32px;
-    background: linear-gradient(135deg, var(--gold-muted) 0%, var(--gold) 50%, var(--gold-bright) 100%);
+    padding: 20px 32px;
+    background: linear-gradient(135deg, #e9c176 0%, #c5a059 100%);
     background-size: 200% 200%;
     border: none;
-    border-radius: 12px;
+    border-radius: 4px;
     font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--bg-deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #412d00;
     cursor: pointer;
     transition: all 0.4s var(--ease-out-expo);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 24px -8px rgba(233, 193, 118, 0.3);
   }
 
   .btn-calculate::before {
@@ -684,7 +683,8 @@
   .btn-calculate:hover {
     background-position: 100% 100%;
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px -8px rgba(184, 149, 110, 0.4);
+    box-shadow: 0 12px 32px -8px rgba(233, 193, 118, 0.4);
+    opacity: 0.9;
   }
 
   .btn-calculate:hover::before {
@@ -692,7 +692,7 @@
   }
 
   .btn-calculate:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.98);
   }
 
   .btn-calculate svg {
